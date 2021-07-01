@@ -60,7 +60,15 @@ function PaginationButton(page){
      button.innerText = page;
 
      if (current_page == page) button.classList.add('active');
+     button.addEventListener('click', function(){
+          current_page = page;
+          DisplayList(list_items, list_element, rows, current_page)
+          
+          let current_btn = document.querySelector('.pagenumbers button.active');
+           current_btn.classList.remove('active')
 
+           button.classList.add('active')
+     })
      return button;
 }
 DisplayList(list_items, list_element, rows, current_page)
